@@ -38,10 +38,14 @@ public class Main {
         dispatcherThread.join();
 
         // Shutdown taxis AFTER all orders were dispatched
-        for (Taxi_Implement taxi : taxiObjects) taxi.shutdown();
+        for (Taxi_Implement taxi : taxiObjects) {
+            taxi.shutdown();
+        }
 
         // Wait for taxis to exit
-        for (Thread t : taxiThreads) t.join();
+        for (Thread t : taxiThreads) {
+            t.join();
+        }
 
         System.out.println("DONE");
     }
